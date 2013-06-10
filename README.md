@@ -3,10 +3,11 @@ JSONized
 
 A simple statically-typed way to access JSON Data from Java.
 
-Step 1: Find some Data
+#### Step 1: Find some JSON Data
+
 Let’s take data from Yahoo as an example. The data contains the most popular new album releases. Here's the first album:
 
-```xtend
+```json
 {
  "query": {
   "count": 24,
@@ -49,7 +50,10 @@ Let’s take data from Yahoo as an example. The data contains the most popular n
 }
 ```
 
-Step 2: Copy the example data into a @Jsonized annotation:
+#### Step 2: Copy the example data into an @Jsonized annotation:
+
+Jsonized makes use of Xtend's active annotations, which is a compile-time macros system.
+The @Jsonized annotation will generate Java classes with the respective accessor methods for the given JSON example.
 
 ```xtend
 @Jsonized('{
@@ -98,8 +102,11 @@ class MusicReleases {
 }
 ```
 
-Step 3: Enjoy statically-typed accessor methods!
+#### Step 3: Enjoy statically-typed accessor methods!
 
-The annotation will create getters and setters derived from the example data. It's just a super thin layer and you have full access to the underlying JsonObject if you want to go more dynamic. If you want to learn how to do such things, you should come to our tutorial. It's going to be fun!
+Now from Java (or Xtend) you can simply work with the Json Data in a statically typed way.
+And it's just a super thin layer so you have full access to the underlying JsonObject if you want to go more dynamic.
+
+Have fun!
 
 
