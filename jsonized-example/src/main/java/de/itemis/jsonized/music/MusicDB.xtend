@@ -38,7 +38,7 @@ class MusicDB {
 	new(){}
 	new (String path) {
 		val file = new File(path)
-		val reader = Files::newReader(file, Charsets::UTF_8)
+		val reader = Files.newReader(file, Charsets.UTF_8)
 		try {
 			val rootElement = new JsonParser().parse(reader)
 			delegate = rootElement as JsonObject
