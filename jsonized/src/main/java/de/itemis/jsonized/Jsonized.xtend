@@ -15,7 +15,7 @@ import static extension de.itemis.jsonized.JsonObjectEntry.*
  * 
  * You have a JSON snippet - I build your classes.
  */
-@Active(typeof(JsonizedProcessor))
+@Active(JsonizedProcessor)
 annotation Jsonized {
 	/**
 	 * A sample json snippet.
@@ -49,14 +49,14 @@ class JsonizedProcessor extends AbstractClassProcessor {
 	override doTransform(MutableClassDeclaration annotatedClass, extension TransformationContext context) {
 		enhanceClassesRecursively(annotatedClass, annotatedClass.jsonEntries, context)
 		annotatedClass.addConstructor [
-			addParameter('delegate', typeof(JsonElement).newTypeReference)
+			addParameter('delegate', newTypeReference(JsonElement))
 			body = ['''setDelegate((com.google.gson.JsonObject)delegate);''']
 		]
 	}
 	
 	def void enhanceClassesRecursively(MutableClassDeclaration clazz, Iterable<? extends JsonObjectEntry> entries, extension TransformationContext context) {
 		// set the super class
-		clazz.extendedClass = typeof(AbstractJsonized).newTypeReference
+		clazz.extendedClass = newTypeReference(AbstractJsonized)
 		
 		// add accessors for the entries
 		for (entry : entries) {

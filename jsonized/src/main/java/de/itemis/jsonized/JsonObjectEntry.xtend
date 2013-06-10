@@ -133,13 +133,12 @@ import org.eclipse.xtend.lib.macro.declaration.TypeReference
 				if (v.isBoolean)
 					primitiveBoolean
 				else if (v.isNumber)
-					typeof(Long).newTypeReference
+					newTypeReference(Long)
 				else if (v.isString)
 					string
 			}
 			JsonObject: {
-				val clazz = findClass(className)
-				clazz.newTypeReference
+				findClass(className).newTypeReference
 			}
 		}
 	}
