@@ -78,10 +78,10 @@ import org.eclipse.xtend.lib.macro.declaration.TypeReference
 	 * @return whether this entry contains a nested JsonObject (directly or indirectly through a JsonArray)
 	 */
 	def boolean isJsonObject() {
-		return getJSONObject != null
+		return getJsonObject != null
 	}
 	
-	private def getJSONObject() {
+	private def getJsonObject() {
 		var value = entry.value
 		if (isArray)
 			value = (value as JsonArray).head
@@ -148,7 +148,7 @@ import org.eclipse.xtend.lib.macro.declaration.TypeReference
 	 */
 	def Iterable<JsonObjectEntry> getChildEntries() {
 		if (isJsonObject) {
-			return getEntries(getJSONObject, unit)
+			return getEntries(getJsonObject, unit)
 		}
 		return #[]
 	}
