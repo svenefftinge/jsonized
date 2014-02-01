@@ -97,7 +97,7 @@ import org.eclipse.xtend.lib.macro.declaration.TypeReference
 	def getPropertyName() {
 		val result = CaseFormat::UPPER_UNDERSCORE.to(CaseFormat::LOWER_CAMEL, entry.key.replace(' ', '_'))
 		if (isArray)
-			return result + 's'
+			return if (result.endsWith('s')) result else result + 's'
 		return if (result=='class') {
 			'clazz'
 		} else {
