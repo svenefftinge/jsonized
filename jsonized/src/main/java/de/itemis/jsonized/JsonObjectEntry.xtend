@@ -131,7 +131,7 @@ import org.eclipse.xtend.lib.macro.declaration.TypeReference
 		switch v {
 			JsonPrimitive: {
 				if (v.isBoolean)
-					primitiveBoolean
+					newTypeReference(Boolean)
 				else if (v.isNumber)
 					newTypeReference(Long)
 				else if (v.isString)
