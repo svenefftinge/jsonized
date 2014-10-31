@@ -9,10 +9,11 @@ import com.google.gson.internal.Streams
 import com.google.gson.stream.JsonWriter
 import java.io.StringWriter
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 
 abstract class AbstractJsonized {
 
-    @Property protected JsonObject delegate = new JsonObject
+    @Accessors protected JsonObject delegate = new JsonObject
 
     /**
 	 * wraps a JsonElement into the container type
@@ -61,7 +62,7 @@ abstract class AbstractJsonized {
                 result
             }
             default:
-                new JsonNull
+                JsonNull.INSTANCE
         }
     }
 
