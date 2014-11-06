@@ -66,7 +66,7 @@ class JsonizedProcessor extends AbstractClassProcessor {
 			clazz.addMethod("get" + entry.propertyName.toFirstUpper) [
 				returnType = realType
 				body = ['''
-					return («realType») wrap(_delegate.get("«entry.key»"), «toJavaCode(type)».class);
+					return («realType») wrap(delegate.get("«entry.key»"), «toJavaCode(type)».class);
 				''']
 			]
 			
@@ -74,7 +74,7 @@ class JsonizedProcessor extends AbstractClassProcessor {
 				addParameter(entry.propertyName, realType)
 				returnType = primitiveVoid
 				body = ['''
-					_delegate.add("«entry.key»", unWrap(«entry.propertyName», «toJavaCode(type)».class));
+					delegate.add("«entry.key»", unWrap(«entry.propertyName», «toJavaCode(type)».class));
 				''']
 			]
 			
