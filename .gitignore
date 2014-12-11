@@ -1,3 +1,8 @@
-.metadata
-generated-sources
-target
+.metadata/
+.gradle/
+.settings/
+bin/
+build/
+
+.classpath
+.project
