@@ -3,7 +3,7 @@ plugins {
 	id 'com.github.oehme.sobula.bintray-release' version '0.4.1'
 }
 
-group "de.itemis" //maybe change this to de.itemis.xtend or com.github.svenefftinge.xtend
+group "de.itemis" 
 
 repositories.mavenCentral()
 
@@ -16,15 +16,15 @@ dependencies {
 sourceCompatibility = 1.5
 
 contacts {
-	"efftinge@itemis.de" {
+	"sven.efftinge@itemis.de" {
 		moniker "Sven Efftinge"
 		roles "owner"
 		github "svenefftinge"
 	}
 }
 
-bintray.user = "your bintray username here"
-bintray.pkg.version.mavenCentralSync.user = "your sonatype jira username here"
+bintray.user = "svenefftinge"
+bintray.pkg.version.mavenCentralSync.user = "svenefftinge"
 
 /*
 	One-time steps:
