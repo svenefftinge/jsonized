@@ -1,0 +1,12 @@
+plugins {
+	id 'org.xtend.xtend' version '0.3.5'
+}
+
+repositories.mavenCentral()
+
+dependencies {
+	compile project(":jsonized")
+	testCompile "junit:junit:4.12"
+}
+
+sourceCompatibility = 1.5

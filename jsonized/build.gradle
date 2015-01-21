@@ -1,0 +1,52 @@
+plugins {
+	id 'org.xtend.xtend' version '0.3.5'
+	id 'com.github.oehme.sobula.bintray-release' version '0.4.1'
+}
+
+group "de.itemis" //maybe change this to de.itemis.xtend or com.github.svenefftinge.xtend
+
+repositories.mavenCentral()
+
+dependencies {
+	compile "org.eclipse.xtend:org.eclipse.xtend.lib:2.7.3"
+	compile "com.google.code.gson:gson:2.2.4"
+	testCompile "junit:junit:4.12"
+}
+
+sourceCompatibility = 1.5
+
+contacts {
+	"efftinge@itemis.de" {
+		moniker "Sven Efftinge"
+		roles "owner"
+		github "svenefftinge"
+	}
+}
+
+bintray.user = "your bintray username here"
+bintray.pkg.version.mavenCentralSync.user = "your sonatype jira username here"
+
+/*
+	One-time steps:
+	- Get a bintray account
+	- Get a Maven Central account and claim your groupId
+	- Get a travis-ci account
+	- Upload your signing key to bintray and hkp://pool.sks-keyservers.net
+	- Enable automatic signing for your maven repository
+	
+	Per-project steps:
+	- Set these env variables on travis:
+		-	ORG_GRADLE_PROJECT_bintrayApiKey
+		-	ORG_GRADLE_PROJECT_signingPassword
+		-	ORG_GRADLE_PROJECT_sonatypePassword
+	- Activate build for project
+			
+	Building/Releasing:
+	- your project is built on every commit, including pull requests
+	- releasing works by just pushing a tag
+	- don't worry, pull-requests can't release in your name ;)
+	
+	After first release:
+	- Request Central Sync Activation
+	- Request Inclusion into Jcenter
+*/
