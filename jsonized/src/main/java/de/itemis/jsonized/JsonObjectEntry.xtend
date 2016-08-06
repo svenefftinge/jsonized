@@ -133,8 +133,14 @@ import org.eclipse.xtend.lib.annotations.Data
 			JsonPrimitive: {
 				if (v.isBoolean)
 					newTypeReference(Boolean)
-				else if (v.isNumber)
-					newTypeReference(Long)
+				else if (v.isNumber) {
+					try {
+						Long.parseLong(v.asString)
+						newTypeReference(Long)
+					} catch(NumberFormatException e) {
+						newTypeReference(Double)
+					}
+				}
 				else if (v.isString)
 					string
 			}
