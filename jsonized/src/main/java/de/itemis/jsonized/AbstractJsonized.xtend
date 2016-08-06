@@ -24,7 +24,12 @@ abstract class AbstractJsonized {
                 if (element.boolean)
                     element.asBoolean
                 else if (element.isNumber)
-                    element.asNumber.longValue
+                    try {
+                        Long.parseLong(element.asString)
+                        element.asNumber.longValue as Long
+                    } catch(NumberFormatException e) {
+                        element.asNumber.doubleValue as Double
+                    }
                 else if (element.string)
                     element.asString
             }
